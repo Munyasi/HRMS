@@ -1,0 +1,75 @@
+<div class="row">
+    <div class="col-lg-12">
+        <div class="card">
+            <div class="card-header">
+            </div>
+            <div class="card-block">
+                <form *ngIf="patientInfo?.length < 1" class="form-horizontal" [formGroup]="patientSearchForm" (ngSubmit)="submit(patientSearchForm.value)">
+                    <div class="form-group">
+                        <label class="form-control-label" for="appendedInputButton"></label>
+                        <div class="controls">
+                            <div class="input-group input-group-lg">
+                                <input id="appendedInputButton" formControlName="id" placeholder="Enter patient id ..." class="form-control" size="16" type="text">
+                                <span class="input-group-btn">
+                                        <button type="submit" [disabled]="!patientSearchForm.valid" class="btn btn-default" >Go!</button>
+                                    </span>
+                            </div>
+                        </div>
+                    </div>
+                </form>
+
+                <div class="patient-auth" *ngIf="show">
+                    <table class="table table-bordered table-striped table-condensed">
+                        <thead>
+                        <tr>
+                            <th>Title</th>
+                            <th>Value</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        <tr>
+                            <td>First Name</td>
+                            <td>Peter</td>
+                        </tr>
+                        <tr>
+                            <td>Middle Name</td>
+                            <td>Munyasi</td>
+                        </tr>
+                        <tr>
+                            <td>Surname</td>
+                            <td>Situma</td>
+                        </tr>
+                        <tr>
+                            <td>Email</td>
+                            <td>psmunyasi@gmail.com</td>
+                        </tr>
+                        <tr>
+                            <td>Town</td>
+                            <td>Nairobi</td>
+                        </tr>
+                        </tbody>
+                    </table>
+
+                    <form [formGroup]="patientAuthorizationForm" (ngSubmit)="authorize(patientAuthorizationForm.value)">
+                        <div class="col-md-12">
+                            <div class="input-group">
+                                <input type="text" formControlName="authorization_code" id="authorization_code" class="form-control" placeholder="Authorization code">
+                                <span class="input-group-btn">
+                                <button type="submit" class="btn btn-primary">Authorize</button>
+                            </span>
+                                &nbsp;
+                                <span class="input-group-btn">
+                                <button (click)="resetSearch()" type="button" class="btn btn-default">Cancel</button>
+                            </span>
+                            </div>
+
+                        </div>
+                    </form>
+
+                </div>
+
+            </div>
+        </div>
+    </div>
+    <!--/col-->
+</div>

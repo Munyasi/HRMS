@@ -1,0 +1,39 @@
+<div class="animated fadeIn">
+  <div class="row">
+    <div class="col-lg-12">
+      <div class="card">
+        <div class="card-header">
+          <button type="button" [routerLink]="['/extras/accounts/add']" class="btn btn-primary pull-right">Add Account</button>
+        </div>
+        <div class="card-body">
+          <table class="table">
+            <thead>
+            <tr>
+              <th>Code</th>
+              <th>Name</th>
+              <th>Designation</th>
+              <th>Gender</th>
+              <th></th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr *ngFor="let account of accounts_list">
+              <td>{{account.practitioner_code}}</td>
+              <td>{{account.practitioner_full_name}}</td>
+              <td>{{account.practitioner_type}}</td>
+              <td>
+                {{account.gender}}
+              </td>
+              <td>
+                <button type="button" class="btn btn-link"><i class="fa fa-link"></i>&nbsp; View</button>
+              </td>
+            </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+    <!--/.col-->
+  </div>
+  <!--/.row-->
+</div>

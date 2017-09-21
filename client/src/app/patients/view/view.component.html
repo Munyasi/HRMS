@@ -1,0 +1,276 @@
+<div class="animated fadeIn">
+    <div class="row">
+        <div class="col-md-12 mb-4">
+            <button type="button" (click)="checkoutPatient()" class="btn btn-primary btn-sm pull-right">Checkout
+                patient
+            </button>
+            <!-- Nav tabs -->
+            <tabset>
+                <tab>
+                    <ng-template tabHeading><i class="icon-calculator"></i> General Info</ng-template>
+                    <div class="card-body">
+                        <form #patientForm="ngForm">
+                            <div class="row">
+                                <div class="form-group col-sm-4">
+                                    <label for="first_name">First name</label>
+                                    <input type="text" class="form-control" name="first_name" disabled
+                                           [(ngModel)]="general_patient_info.first_name" id="first_name"
+                                           placeholder="Patient first name">
+                                </div>
+                                <div class="form-group col-sm-4">
+                                    <label for="middle_name">Middle name</label>
+                                    <input type="text" class="form-control" name="middle_name" disabled
+                                           [(ngModel)]="general_patient_info.middle_name" id="middle_name"
+                                           placeholder="Patient middle name">
+                                </div>
+                                <div class="form-group col-sm-4">
+                                    <label for="surname">Surname</label>
+                                    <input type="text" class="form-control" name="surname" disabled
+                                           [(ngModel)]="general_patient_info.surname" id="surname"
+                                           placeholder="Patient surname">
+                                </div>
+                            </div>
+
+                            <div class="row">
+                                <div class="form-group col-sm-4">
+                                    <label for="dob">Date of birth</label>
+                                    <input type="date" class="form-control" name="dob" disabled
+                                           [(ngModel)]="general_patient_info.dob" id="dob" placeholder="Date of birth">
+                                </div>
+                                <div class="form-group col-sm-4">
+                                    <label for="gender">Gender</label>
+                                    <select type="text" class="form-control" name="gender" disabled
+                                            [(ngModel)]="general_patient_info.gender" id="gender">
+                                        <option value="Male">Male</option>
+                                        <option value="Female">Female</option>
+                                    </select>
+                                </div>
+                                <div class="form-group col-sm-4">
+                                    <label for="marital_status">Marital status</label>
+                                    <select type="text" class="form-control" name="marital_status" disabled
+                                            [(ngModel)]="general_patient_info.marital_status" id="marital_status">
+                                        <option value="Engaged">Engaged</option>
+                                        <option value="Single">Single</option>
+                                    </select>
+                                </div>
+                            </div>
+
+                            <div class="row">
+                                <div class="form-group col-sm-4">
+                                    <label for="occupation">Occupation</label>
+                                    <input type="text" class="form-control" name="occupation" disabled
+                                           [(ngModel)]="general_patient_info.occupation" id="occupation"
+                                           placeholder="Occupation">
+                                </div>
+                                <div class="form-group col-sm-4">
+                                    <label for="email">Email</label>
+                                    <input type="text" class="form-control" name="email" disabled
+                                           [(ngModel)]="general_patient_info.email" id="email" placeholder="Email">
+                                </div>
+                                <div class="form-group col-sm-4">
+                                    <label for="phone_number">Phone number</label>
+                                    <input type="text" class="form-control" name="phone_number" disabled
+                                           [(ngModel)]="general_patient_info.phone_number" id="phone_number"
+                                           placeholder="Phone number">
+                                </div>
+                            </div>
+
+                            <div class="row">
+                                <div class="form-group col-sm-4">
+                                    <label for="city">City</label>
+                                    <input type="text" class="form-control" name="city" disabled
+                                           [(ngModel)]="general_patient_info.city" id="city" placeholder="City">
+                                </div>
+                                <div class="form-group col-sm-4">
+                                    <label for="town">Town</label>
+                                    <input type="text" class="form-control" name="town" disabled
+                                           [(ngModel)]="general_patient_info.town" id="town" placeholder="Town">
+                                </div>
+                                <div class="form-group col-sm-4">
+                                    <label for="street">Street</label>
+                                    <input type="text" class="form-control" name="street" disabled
+                                           [(ngModel)]="general_patient_info.street" id="street" placeholder="Street">
+                                </div>
+                            </div>
+
+                            <div class="row">
+                                <div class="form-group col-sm-6">
+                                    <label for="postal_code">Postal code</label>
+                                    <input type="text" class="form-control" name="postal_code" disabled
+                                           [(ngModel)]="general_patient_info.postal_code" id="postal_code"
+                                           placeholder="Postal code">
+                                </div>
+                                <div class="form-group col-sm-6">
+                                    <label for="postal_address">Postal address</label>
+                                    <input type="text" class="form-control" name="postal_address" disabled
+                                           [(ngModel)]="general_patient_info.postal_address" id="postal_address"
+                                           placeholder="Postal address">
+                                </div>
+                            </div>
+
+                            <div class="row">
+                                <div class="form-group col-sm-4">
+                                    <label for="emergency_contact_name">Emergency Contact Name</label>
+                                    <input type="text" class="form-control" name="emergency_contact_name" disabled
+                                           [(ngModel)]="general_patient_info.emergency_contact_name"
+                                           id="emergency_contact_name" placeholder="Full contact name">
+                                </div>
+                                <div class="form-group col-sm-4">
+                                    <label for="emergency_contact_phone">Emergency Contact Phone</label>
+                                    <input type="text" class="form-control" name="emergency_contact_phone" disabled
+                                           [(ngModel)]="general_patient_info.emergency_contact_phone"
+                                           id="emergency_contact_phone" placeholder="Emergency Contact Phone">
+                                </div>
+                                <div class="form-group col-sm-4">
+                                    <label for="emergency_contact_relation">Emergency Contact relation</label>
+                                    <input type="text" class="form-control" name="emergency_contact_relation" disabled
+                                           [(ngModel)]="general_patient_info.emergency_contact_relation"
+                                           id="emergency_contact_relation" placeholder="Emergency Contact Relation">
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="notes">Patient Notes</label>
+                                <textarea type="text" class="form-control" name="notes" disabled
+                                          [(ngModel)]="general_patient_info.notes" id="notes"
+                                          placeholder="Patient notes"></textarea>
+                            </div>
+                        </form>
+                    </div>
+                </tab>
+                <tab>
+                    <ng-template tabHeading><i class="icon-basket-loaded"></i> Medical History</ng-template>
+                    <div class="row">
+                        <div class="col-lg-12">
+                            <div class="card">
+                                <div class="card-header">
+                                    <i class="fa fa-align-justify"></i> Summary
+                                </div>
+                                <div class="card-block">
+                                    <div class="row">
+                                        <div class="col-sm-4">
+                                            <div class="card">
+                                                <div class="card-block p-a-1 clearfix">
+                                                    <i class="fa fa-cogs bg-primary p-a-1 font-2xl m-r-1 pull-left"></i>
+                                                    <div class="h5 text-primary m-b-0 m-t-h">
+                                                        {{general_patient_info['history']?.length}}
+                                                    </div>
+                                                    <div class="text-muted text-uppercase font-weight-bold font-xs">
+                                                        Hospital Visits
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-sm-4">
+                                            <div class="card">
+                                                <div class="card-block p-a-1 clearfix">
+                                                    <i class="fa fa-cogs bg-primary p-a-1 font-2xl m-r-1 pull-left"></i>
+                                                    <div class="h5 text-primary m-b-0 m-t-h">
+                                                        {{general_patient_info.diagnosis?.length}}
+                                                    </div>
+                                                    <div class="text-muted text-uppercase font-weight-bold font-xs">
+                                                        Unique Diagnosis
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-sm-4">
+                                            <div class="card">
+                                                <div class="card-block p-a-1 clearfix">
+                                                    <i class="fa fa-cogs bg-primary p-a-1 font-2xl m-r-1 pull-left"></i>
+                                                    <div class="h5 text-primary m-b-0 m-t-h">
+                                                        {{general_patient_info.facilities?.length}}
+                                                    </div>
+                                                    <div class="text-muted text-uppercase font-weight-bold font-xs">
+                                                        Unique Hospitals
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-lg-12">
+                            <div class="card">
+                                <div class="card-header">
+                                    <i class="fa fa-align-justify"></i> Records
+                                </div>
+                                <div class="card-block">
+                                    <table class="table table-striped">
+                                        <thead>
+                                        <tr>
+                                            <th>Diagnosis Code</th>
+                                            <th>Hospital</th>
+                                            <th>Diagnosis</th>
+                                            <th>Date</th>
+                                            <th></th>
+                                        </tr>
+                                        </thead>
+                                        <tbody>
+                                        <tr *ngFor="let his of general_patient_info.history">
+                                            <td>{{his.diagnosis_code}}</td>
+                                            <td>{{his.name}}</td>
+                                            <td>{{his.diagnosis}}</td>
+                                            <td>{{his.createdAt | date}}</td>
+                                            <td>
+                                                <button class="btn btn-link" type="button">
+                                                    <i _ngcontent-c1="" class="fa fa-link"></i>View
+                                                </button>
+                                            </td>
+                                        </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </tab>
+                <tab>
+                    <ng-template tabHeading><i class="icon-pie-chart"></i> Charts</ng-template>
+                    <div class="row">
+                        <div class="col-sm-4">
+                            <div class="card">
+                                <div class="chart-wrapper visited-hospitals">
+                                    <canvas baseChart class="chart"
+                                            [data]="analysis_h_frequency"
+                                            [labels]="analysis_h_labels"
+                                            [chartType]="doughnutChartType"
+                                            (chartHover)="chartHovered($event)"
+                                            (chartClick)="chartClicked($event)">
+                                    </canvas>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-sm-4">
+                            <div class="card">
+                                <div class="chart-wrapper">
+                                    <canvas baseChart class="chart"
+                                            [data]="analysis_d_frequency"
+                                            [labels]="analysis_d_labels"
+                                            [chartType]="doughnutChartType"
+                                            (chartHover)="chartHovered($event)"
+                                            (chartClick)="chartClicked($event)">
+                                    </canvas>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-sm-4">
+                            <div class="card">
+                                <div class="chart-wrapper">
+                                    <canvas baseChart class="chart"
+                                            [data]="analysis_m_frequency"
+                                            [labels]="analysis_m_labels"
+                                            [chartType]="doughnutChartType"
+                                            (chartHover)="chartHovered($event)"
+                                            (chartClick)="chartClicked($event)">
+                                    </canvas>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </tab>
+            </tabset>
+        </div><!--/.col-->
+    </div><!--/.row-->
+</div>

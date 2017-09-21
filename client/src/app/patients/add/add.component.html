@@ -1,0 +1,114 @@
+<div class="animated fadeIn">
+  <div class="row">
+    <div class="col-sm-12">
+      <div class="card">
+        <form [formGroup]="patientForm" (ngSubmit)="submit(patientForm.value)">
+          <div class="card-header">
+          </div>
+          <div class="card-body">
+            <div class="row">
+              <div class="form-group col-sm-4">
+                <label for="first_name">First name</label>
+                <input type="text" class="form-control" formControlName="first_name" id="first_name" placeholder="Patient first name">
+              </div>
+              <div class="form-group col-sm-4">
+                <label for="middle_name">Middle name</label>
+                <input type="text" class="form-control" formControlName="middle_name" id="middle_name" placeholder="Patient middle name">
+              </div>
+              <div class="form-group col-sm-4">
+                <label for="surname">Surname</label>
+                <input type="text" class="form-control" formControlName="surname" id="surname" placeholder="Patient surname">
+              </div>
+            </div>
+
+            <div class="row">
+              <div class="form-group col-sm-4">
+                <label for="dob">Date of birth</label>
+                <input type="date" class="form-control" formControlName="dob" id="dob" placeholder="Date of birth">
+              </div>
+              <div class="form-group col-sm-4">
+                <label for="gender">Gender</label>
+                <select type="text" class="form-control" formControlName="gender" id="gender">
+                  <option value="Male">Male</option>
+                  <option value="Female">Female</option>
+                </select>
+              </div>
+              <div class="form-group col-sm-4">
+                <label for="marital_status">Marital status</label>
+                <select type="text" class="form-control" formControlName="marital_status" id="marital_status">
+                  <option value="Engaged">Engaged</option>
+                  <option value="Single">Single</option>
+                </select>
+              </div>
+            </div>
+
+            <div class="row">
+              <div class="form-group col-sm-4">
+                <label for="occupation">Occupation</label>
+                <input type="text" class="form-control" formControlName="occupation" id="occupation" placeholder="Occupation">
+              </div>
+              <div class="form-group col-sm-4">
+                <label for="email">Email</label>
+                <input type="text" class="form-control" formControlName="email" id="email" placeholder="Email">
+              </div>
+              <div class="form-group col-sm-4">
+                <label for="phone_number">Phone number</label>
+                <input type="text" class="form-control" formControlName="phone_number" id="phone_number" placeholder="Phone number">
+              </div>
+            </div>
+
+            <div class="row">
+              <div class="form-group col-sm-4">
+                <label for="city">City</label>
+                <input type="text" class="form-control" formControlName="city" id="city" placeholder="City">
+              </div>
+              <div class="form-group col-sm-4">
+                <label for="town">Town</label>
+                <input type="text" class="form-control" formControlName="town" id="town" placeholder="Town">
+              </div>
+              <div class="form-group col-sm-4">
+                <label for="street">Street</label>
+                <input type="text" class="form-control" formControlName="street" id="street" placeholder="Street">
+              </div>
+            </div>
+
+            <div class="row">
+              <div class="form-group col-sm-6">
+                <label for="postal_code">Postal code</label>
+                <input type="text" class="form-control" formControlName="postal_code" id="postal_code" placeholder="Postal code">
+              </div>
+              <div class="form-group col-sm-6">
+                <label for="postal_address">Postal address</label>
+                <input type="text" class="form-control" formControlName="postal_address" id="postal_address" placeholder="Postal address">
+              </div>
+            </div>
+
+            <div class="row">
+              <div class="form-group col-sm-4">
+                <label for="emergency_contact_name">Emergency Contact Name</label>
+                <input type="text" class="form-control" formControlName="emergency_contact_name" id="emergency_contact_name" placeholder="Full contact name">
+              </div>
+              <div class="form-group col-sm-4">
+                <label for="emergency_contact_phone">Emergency Contact Phone</label>
+                <input type="text" class="form-control" formControlName="emergency_contact_phone" id="emergency_contact_phone" placeholder="Emergency Contact Phone">
+              </div>
+              <div class="form-group col-sm-4">
+                <label for="emergency_contact_relation">Emergency Contact relation</label>
+                <input type="text" class="form-control" formControlName="emergency_contact_relation" id="emergency_contact_relation" placeholder="Emergency Contact Relation">
+              </div>
+            </div>
+
+            <div class="form-group">
+              <label for="notes">Patient Notes</label>
+              <textarea type="text" class="form-control" formControlName="notes" id="notes" placeholder="Patient notes"></textarea>
+            </div>
+
+          </div>
+          <div class="card-footer">
+            <button type="submit" [disabled]="!patientForm.valid" class="btn btn-primary">Submit</button>
+          </div>
+        </form>
+      </div>
+    </div><!--/.col-->
+  </div><!--/.row-->
+</div>

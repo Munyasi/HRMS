@@ -1,0 +1,101 @@
+{
+  "name": "Patient",
+  "plural": "Patients",
+  "base": "PersistedModel",
+  "idInjection": true,
+  "options": {
+    "validateUpsert": true
+  },
+  "mixins": {
+    "TimeStamp": true
+  },
+  "properties": {
+    "first_name": {
+      "type": "string",
+      "required": true
+    },
+    "middle_name": {
+      "type": "string",
+      "required": true
+    },
+    "surname": {
+      "type": "string",
+      "required": true
+    },
+    "dob": {
+      "type": "date",
+      "required": true
+    },
+    "gender": {
+      "type": "string",
+      "required": true
+    },
+    "marital_status": {
+      "type": "string",
+      "required": true
+    },
+    "occupation": {
+      "type": "string"
+    },
+    "email": {
+      "type": "string",
+      "index": {
+        "unique": true
+      }
+    },
+    "phone_number": {
+      "type": "string",
+      "index": {
+        "unique": true
+      }
+    },
+    "city": {
+      "type": "string",
+      "required": true
+    },
+    "town": {
+      "type": "string",
+      "required": true
+    },
+    "postal_code": {
+      "type": "number",
+      "required": true
+    },
+    "postal_address": {
+      "type": "string",
+      "required": true
+    },
+    "street": {
+      "type": "string",
+      "required": true
+    },
+    "emergency_contact_name": {
+      "type": "string",
+      "required": true
+    },
+    "emergency_contact_relation": {
+      "type": "string",
+      "required": true
+    },
+    "emergency_contact_phone": {
+      "type": "string",
+      "required": true
+    },
+    "notes": {
+      "type": "string"
+    },
+    "authorization_code": {
+      "type": "string"
+    }
+  },
+  "validations": [],
+  "relations": {
+    "hospitals": {
+      "type": "hasMany",
+      "model": "PatientHospital",
+      "foreignKey": "hospital_id"
+    }
+  },
+  "acls": [],
+  "methods": {}
+}

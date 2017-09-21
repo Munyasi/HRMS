@@ -1,0 +1,79 @@
+{
+  "_meta": {
+    "sources": [
+      "loopback/common/models",
+      "loopback/server/models",
+      "../common/models",
+      "./models"
+    ],
+    "mixins": [
+      "loopback/common/mixins",
+      "loopback/server/mixins",
+      "../node_modules/loopback-ds-timestamp-mixin",
+      "../common/mixins",
+      "./mixins"
+    ]
+  },
+  "User": {
+    "dataSource": "db"
+  },
+  "AccessToken": {
+    "dataSource": "db",
+    "public": false
+  },
+  "ACL": {
+    "dataSource": "db",
+    "public": false
+  },
+  "RoleMapping": {
+    "dataSource": "db",
+    "public": false,
+    "options": {
+      "strictObjectIDCoercion": true
+    }
+  },
+  "Role": {
+    "dataSource": "db",
+    "public": false
+  },
+  "UserAccount": {
+    "dataSource": "mysql",
+    "public": true
+  },
+  "Patient": {
+    "dataSource": "mysql",
+    "public": true
+  },
+  "Hospital": {
+    "dataSource": "mysql",
+    "public": true
+  },
+  "PatientHospital": {
+    "dataSource": "mysql",
+    "public": true
+  },
+  "Medicine": {
+    "dataSource": "mysql",
+    "public": true
+  },
+  "PatientMedicine": {
+    "dataSource": "mysql",
+    "public": true
+  },
+  "Insurance": {
+    "dataSource": "mysql",
+    "public": true
+  },
+  "PatientInsurance": {
+    "dataSource": "mysql",
+    "public": true
+  },
+  "Disease": {
+    "dataSource": "mysql",
+    "public": true
+  },
+  "PatientDisease": {
+    "dataSource": "mysql",
+    "public": true
+  }
+}

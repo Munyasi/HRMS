@@ -1,0 +1,32 @@
+{
+  "name": "PatientInsurance",
+  "base": "PersistedModel",
+  "idInjection": true,
+  "options": {
+    "validateUpsert": true
+  },
+  "mixins": {
+    "TimeStamp": true
+  },
+  "properties": {},
+  "validations": [],
+  "relations": {
+    "patient": {
+      "type": "belongsTo",
+      "model": "Patient",
+      "foreignKey": "patient_id"
+    },
+    "insurance": {
+      "type": "belongsTo",
+      "model": "Insurance",
+      "foreignKey": "insurance_id"
+    },
+    "practitioner": {
+      "type": "belongsTo",
+      "model": "UserAccount",
+      "foreignKey": "practitioner_id"
+    }
+  },
+  "acls": [],
+  "methods": {}
+}

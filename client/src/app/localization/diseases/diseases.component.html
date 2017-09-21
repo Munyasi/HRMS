@@ -1,0 +1,33 @@
+<div class="animated fadeIn">
+  <div class="row">
+    <div class="col-lg-12">
+      <div class="card">
+        <div class="card-header">
+          <button type="button" [routerLink]="['/localization/diseases/add']" class="btn btn-primary pull-right">Add Disease</button>
+        </div>
+        <div class="card-body">
+          <table class="table">
+            <thead>
+            <tr>
+              <th>Id</th>
+              <th>Name</th>
+              <th></th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr *ngFor="let disease of disease_list">
+              <td>{{disease.id}}</td>
+              <td>{{disease.name}}</td>
+              <td>
+                <button type="button" class="btn btn-link"><i class="fa fa-link"></i>&nbsp; View</button>
+              </td>
+            </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+    <!--/.col-->
+  </div>
+  <!--/.row-->
+</div>

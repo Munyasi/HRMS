@@ -1,0 +1,37 @@
+{
+  "name": "PatientHospital",
+  "base": "PersistedModel",
+  "idInjection": true,
+  "options": {
+    "validateUpsert": true
+  },
+  "mixins": {
+    "TimeStamp": true
+  },
+  "properties": {
+    "diagnosis_code": {
+      "type": "string",
+      "required": true
+    }
+  },
+  "validations": [],
+  "relations": {
+    "patient": {
+      "type": "belongsTo",
+      "model": "Patient",
+      "foreignKey": "patient_id"
+    },
+    "hospital": {
+      "type": "belongsTo",
+      "model": "Hospital",
+      "foreignKey": "hospital_id"
+    },
+    "practitioner": {
+      "type": "belongsTo",
+      "model": "UserAccount",
+      "foreignKey": "practitioner_id"
+    }
+  },
+  "acls": [],
+  "methods": {}
+}

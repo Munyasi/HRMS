@@ -1,0 +1,70 @@
+<div class="row">
+  <div class="col-sm-4">
+    <div class="card">
+      <div class="card-header">
+        <strong>Patient</strong> details
+      </div>
+      <div class="card-block">
+        <table class="table table-bordered table-striped table-condensed">
+          <tr>
+            <td>Names</td>
+            <td>{{patient_info.surname}} {{patient_info.middle_name}} {{patient_info.first_name}}</td>
+          </tr>
+          <tr>
+            <td>Age</td>
+            <td>{{patient_info.age}} years</td>
+          </tr>
+          <tr>
+            <td>Gender</td>
+            <td>{{patient_info.gender}}</td>
+          </tr>
+          <tr>
+            <td>Notes</td>
+            <td>{{patient_info.note}}</td>
+          </tr>
+        </table>
+      </div>
+    </div>
+  </div>
+  <!--/col-->
+  <div class="col-sm-8">
+    <div class="card">
+      <form #checkoutForm="ngForm" novalidate (ngSubmit)="save(checkoutForm.value)">
+        <div class="card-header">
+          <strong>Medication</strong> details
+        </div>
+        <div class="card-block">
+          <div class="form-group has-success">
+            <label class="form-form-control-label" for="hospital_id">Facility Name</label>
+            <select type="text" name="hospital_id" [(ngModel)]="hospital_id" required class="form-control" id="hospital_id">
+              <option *ngFor="let hos of hospital_list" value="{{hos.id}}">{{hos.name}}, {{hos.town}}</option>
+            </select>
+          </div>
+          <div class="form-group has-warning">
+            <label class="form-form-control-label" for="diagnosis">Diagnosis</label>
+            <tag-input id="diagnosis" name="diagnosis"  [(ngModel)]="diagnosis" required [onlyFromAutocomplete]="true">
+              <tag-input-dropdown [showDropdownIfEmpty]="true" [autocompleteItems]="disease_list" [identifyBy]="'id'" [displayBy]="'name'">
+              </tag-input-dropdown>
+            </tag-input>
+          </div>
+          <div class="form-group has-danger has-feedback">
+            <label class="form-form-control-label" for="medication">Medication</label>
+            <tag-input name="medication" id="medication"  [(ngModel)]="medication" required [onlyFromAutocomplete]="true">
+              <tag-input-dropdown [showDropdownIfEmpty]="true" [autocompleteItems]="medicine_list" [identifyBy]="'id'" [displayBy]="'name'">
+              </tag-input-dropdown>
+            </tag-input>
+          </div>
+        </div>
+        <div class="card-footer">
+          <button type="submit"  class="btn btn-primary">Save</button>
+        </div>
+      </form>
+    </div>
+  </div>
+  <!--/col-->
+</div>
+
+
+  <!--<tag-input name="equipmentRegistration" [onlyFromAutocomplete]="true" [(ngModel)]="items" [identifyBy]="'id'" [displayBy]="'name'">
+    <tag-input-dropdown [appendToBody]="false" [autocompleteItems]="items2" [identifyBy]="'id'" [displayBy]="'name'"></tag-input-dropdown>
+  </tag-input>-->

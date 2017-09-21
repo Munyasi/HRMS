@@ -1,0 +1,44 @@
+{
+  "name": "EHRS",
+  "version": "1.0.0",
+  "main": "server/server.js",
+  "engines": {
+    "node": ">=4"
+  },
+  "scripts": {
+    "lint": "eslint .",
+    "start": "nodemon .",
+    "posttest": "npm run lint && nsp check",
+    "sdk": "./node_modules/.bin/lb-sdk server/server.js client/src/app/shared/sdk ng2web -i disabled",
+    "mg": "lb-migration migrate --method=update"
+  },
+  "dependencies": {
+    "@mean-expert/loopback-sdk-builder": "^2.1.0-rc.12.1",
+    "async": "^2.5.0",
+    "bluebird": "^3.5.0",
+    "compression": "^1.0.3",
+    "cors": "^2.5.2",
+    "emailjs": "^1.0.12",
+    "helmet": "^1.3.0",
+    "lodash": "^4.17.4",
+    "loopback": "^3.0.0",
+    "loopback-boot": "^2.6.5",
+    "loopback-component-explorer": "^4.0.0",
+    "loopback-connector-mysql": "^5.1.0",
+    "loopback-ds-timestamp-mixin": "^3.4.1",
+    "randomatic": "^1.1.7",
+    "serve-favicon": "^2.0.1",
+    "strong-error-handler": "^2.0.0"
+  },
+  "devDependencies": {
+    "eslint": "^3.17.1",
+    "eslint-config-loopback": "^8.0.0",
+    "nsp": "^2.1.0"
+  },
+  "repository": {
+    "type": "",
+    "url": ""
+  },
+  "license": "UNLICENSED",
+  "description": "EHRS"
+}

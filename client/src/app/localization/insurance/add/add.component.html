@@ -1,0 +1,43 @@
+<div class="animated fadeIn">
+  <div class="row">
+    <div class="col-sm-12">
+      <div class="card">
+        <form [formGroup]="insuranceForm" (ngSubmit)="submit(insuranceForm.value)">
+          <div class="card-header">
+          </div>
+          <div class="card-body">
+
+            <div class="form-group">
+              <label for="name">Name</label>
+              <input type="text" class="form-control" formControlName="name" id="name" placeholder="Insurance name">
+            </div>
+
+            <div class="form-group">
+              <label for="description">Description</label>
+              <textarea type="text" class="form-control" formControlName="description" id="description" placeholder="Insurance description"></textarea>
+            </div>
+
+            <div class="form-group">
+              <label for="email">Email</label>
+              <input type="text" class="form-control" formControlName="email" id="email" placeholder="Insurance email">
+            </div>
+
+            <div class="form-group">
+              <label for="phone_number">Phone number</label>
+              <input type="text" class="form-control" formControlName="phone_number" id="phone_number" placeholder="Insurance phone number">
+            </div>
+
+            <div class="form-group">
+              <label for="head_office_address">Full address</label>
+              <textarea type="text" class="form-control" formControlName="head_office_address" id="head_office_address" placeholder="Head office address"></textarea>
+            </div>
+
+          </div>
+          <div class="card-footer">
+            <button type="submit" [disabled]="!insuranceForm.valid" class="btn btn-primary">Submit</button>
+          </div>
+        </form>
+      </div>
+    </div><!--/.col-->
+  </div><!--/.row-->
+</div>

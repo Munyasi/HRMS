@@ -1,0 +1,79 @@
+<div class="animated fadeIn">
+  <div class="row">
+    <div class="col-sm-12">
+      <div class="card">
+        <form [formGroup]="accountForm" (ngSubmit)="submit(accountForm.value)">
+          <div class="card-header">
+          </div>
+          <div class="card-body">
+            <div class="row">
+              <div class="form-group col-sm-6">
+                <label for="practitioner_full_name">Practitioner Full Names</label>
+                <input type="text" class="form-control" formControlName="practitioner_full_name" id="practitioner_full_name" placeholder="Practitioner Full Names">
+              </div>
+              <div class="form-group col-sm-3">
+                <label for="realm">User Group</label>
+                <select class="form-control" formControlName="realm" id="realm">
+                  <option value="Admin">Admin</option>
+                  <option value="Practitioner">Practitioner</option>
+                </select>
+              </div>
+              <div class="form-group col-sm-3">
+                <label for="practitioner_type">Practitioner Type</label>
+                <select class="form-control" formControlName="practitioner_type" id="practitioner_type">
+                  <option value="Doctor">Doctor</option>
+                  <option value="Clinical Officer">Clinical officer</option>
+                  <option value="Nurse">Nurse</option>
+                </select>
+              </div>
+            </div>
+
+            <div class="row">
+              <div class="form-group col-sm-6">
+                <label for="practitioner_code">Practitioner code</label>
+                <input type="text" class="form-control" formControlName="practitioner_code" id="practitioner_code" placeholder="Practitioner code">
+              </div>
+
+              <div class="form-group col-sm-6">
+                <label for="email">Email</label>
+                <input type="text" class="form-control" formControlName="email" id="email" placeholder="Email">
+              </div>
+            </div>
+
+            <div class="row">
+              <div class="form-group col-sm-6">
+                <label for="username">Username</label>
+                <input type="text" class="form-control" formControlName="username" id="username" placeholder="Username">
+              </div>
+              <div class="form-group col-sm-6">
+                <label for="password">Password</label>
+                <input type="password" class="form-control" formControlName="password" id="password" placeholder="password">
+              </div>
+            </div>
+
+            <div class="row">
+              <div class="form-group col-sm-4">
+                <label for="gender">Gender</label>
+                <select type="text" class="form-control" formControlName="gender" id="gender" placeholder="Gender">
+                  <option value="Male">Male</option>
+                  <option value="Female">Female</option>
+                </select>
+              </div>
+              <div class="form-group col-sm-4">
+                <label for="dob">Date of birth</label>
+                <input type="date" class="form-control" formControlName="dob" id="dob" placeholder="Date of birth">
+              </div>
+              <div class="form-group col-sm-4">
+                <label for="phone_number">Phone number</label>
+                <input type="text" class="form-control" formControlName="phone_number" id="phone_number" placeholder="Phone number">
+              </div>
+            </div>
+          </div>
+          <div class="card-footer">
+            <button type="submit" [disabled]="!accountForm.valid" class="btn btn-primary">Submit</button>
+          </div>
+        </form>
+      </div>
+    </div><!--/.col-->
+  </div><!--/.row-->
+</div>
