@@ -13,8 +13,8 @@ function search(id, cb) {
                 let rand = randomize('A0', 8);
                 resPatient.authorization_code = rand;
                 resPatient.save();
-                //sendMail(resPatient.email,rand);
-                //resPatient.authorization_code=null;
+                sendMail(resPatient.email,rand);
+                resPatient.authorization_code=null;
                 cb(null,resPatient)
             }else{
                 cb(null,null);
