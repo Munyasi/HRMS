@@ -269,6 +269,26 @@
                             </div>
                         </div>
                     </div>
+                    <div class="row">
+                        <div class="card">
+                            <div class="card-header">
+                                Health frequency data
+                            </div>
+                            <div class="card-body">
+                                <div class="chart-wrapper">
+                                    <canvas *ngIf="analytics.line_chart" baseChart class="chart"
+                                            [datasets]="analytics.line_chart.lineChartData"
+                                            [labels]="analytics.line_chart.lineChartLabels"
+                                            [options]="lineChartOptions"
+                                            [colors]="lineChartColours"
+                                            [legend]="lineChartLegend"
+                                            [chartType]="lineChartType"
+                                            (chartHover)="chartHovered($event)"
+                                            (chartClick)="chartClicked($event)"></canvas>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                 </tab>
             </tabset>
         </div><!--/.col-->

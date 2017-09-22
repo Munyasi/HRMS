@@ -16,6 +16,23 @@ export class ViewComponent implements OnInit {
   general_patient_info = {};
   public doughnutChartType = 'doughnut';
   public analytics = {};
+  public lineChartOptions: any = {
+    animation: false,
+    responsive: true
+  };
+
+  public lineChartColours: Array<any> = [
+    { // grey
+      backgroundColor: 'rgba(148,159,177,0.2)',
+      borderColor: 'rgba(148,159,177,1)',
+      pointBackgroundColor: 'rgba(148,159,177,1)',
+      pointBorderColor: '#fff',
+      pointHoverBackgroundColor: '#fff',
+      pointHoverBorderColor: 'rgba(148,159,177,0.8)'
+    }
+  ];
+  public lineChartLegend = true;
+  public lineChartType = 'line';
 
   constructor(private router: Router,private route: ActivatedRoute, protected user:UserAccountApi, protected patient: PatientApi, protected patientHospital:PatientHospitalApi) {
     this.user.isAuthenticated()?false:this.router.navigate(['login']);
@@ -30,6 +47,8 @@ export class ViewComponent implements OnInit {
     this.patient.getAllDetails({id:this.patient_id,code:this.authorization_code})
         .subscribe(res => {
           this.general_patient_info = res.data;
+
+          //doughnut pie
           let hospital_data = this.general_patient_info['facilities'];
           let f_h = [];
           let l_h = [];
@@ -38,6 +57,7 @@ export class ViewComponent implements OnInit {
             l_h.push(value.name);
           });
 
+          //doughnut pie
           let diagnosis_data = this.general_patient_info['diagnosis'];
           let f_d = [];
           let l_d = [];
@@ -46,6 +66,7 @@ export class ViewComponent implements OnInit {
             l_d.push(value.name);
           });
 
+          //doughnut pie
           let medication_data = this.general_patient_info['medication'];
           let f_m = [];
           let l_m = [];
@@ -53,7 +74,12 @@ export class ViewComponent implements OnInit {
             f_m.push(value.frequency);
             l_m.push(value.name);
           });
-          this.analytics={hospital:{labels:l_h,frequency:f_h},diagnosis:{labels:l_d,frequency:f_d},medication:{labels:l_m,frequency:f_m}}
+
+          // lineChart
+          let lineChartData: Array<any> = [ {data: this.general_patient_info['analytics']['diagnosis_frequency'], label: 'Hospital Visits'},];
+          let lineChartLabels: Array<any> = this.general_patient_info['analytics']['months'];
+
+          this.analytics={line_chart:{lineChartData:lineChartData,lineChartLabels:lineChartLabels},hospital:{labels:l_h,frequency:f_h},diagnosis:{labels:l_d,frequency:f_d},medication:{labels:l_m,frequency:f_m}}
         });
   }
 

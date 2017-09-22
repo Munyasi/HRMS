@@ -73,12 +73,26 @@ function getAllDetails(params, cb) {
                     },
                     analytics: function(callback) {
                         var ds = Medicine.dataSource;
-                        var sql = "SELECT * FROM Medicine JOIN PatientMedicine on PatientMedicine.medicine_id=Medicine.id WHERE PatientMedicine.patient_id="+params.id+" GROUP BY Medicine.name";
-                        ds.connector.query(sql,function (err, medRes) {
+                        let months = ["January", "February", "March", "April", "May", "June","July", "August", "September", "October", "November", "December"];
+                        let diagnosis_frequency = [];
+                        let max_df = 0
+                        async.forEachOf(months, function (value, key, callback2) {
+                            var sql = "SELECT Count(patient_id) as count FROM `PatientHospital` WHERE MonthName(createdAt)='"+value+"'";
+                            ds.connector.query(sql,function (err, countRes) {
+                                if (err) {
+                                    callback2(err);
+                                }else {
+                                    max_df = (countRes[0].count>max_df)?countRes[0].count:max_df;
+                                    diagnosis_frequency.push(countRes[0].count);
+                                    callback2();
+                                }
+                            });
+
+                        }, function (err) {
                             if (err) {
                                 callback(err);
-                            }else {
-                                callback(null,medRes);
+                            }else{
+                                callback(null,{months:months,diagnosis_frequency:diagnosis_frequency,max_df:max_df});
                             }
                         });
                     },
@@ -90,6 +104,7 @@ function getAllDetails(params, cb) {
                         resPatient['medication']= results.medication;
                         resPatient['health_insurance']= results.health_insurance;
                         resPatient['history']= results.history;
+                        resPatient['analytics']= results.analytics;
                         cb(null,resPatient);
                     }else{
                         cb(err);
