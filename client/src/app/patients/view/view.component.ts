@@ -14,18 +14,8 @@ export class ViewComponent implements OnInit {
   patient_id:number;
   authorization_code: string;
   general_patient_info = {};
-  analysis_h_labels: string[];
-  analysis_h_frequency = [];
-  analysis_m_labels : string[];
-  analysis_m_frequency : number[];
-  analysis_d_labels : string[];
-  analysis_d_frequency : number[];
-
   public doughnutChartType = 'doughnut';
   public analytics = {};
-  // Doughnut
-  public doughnutChartLabels: string[] = ['Download Sales', 'In-Store Sales', 'Mail-Order Sales'];
-  public doughnutChartData: number[] = [350, 450, 100];
 
   constructor(private router: Router,private route: ActivatedRoute, protected user:UserAccountApi, protected patient: PatientApi, protected patientHospital:PatientHospitalApi) {
     this.user.isAuthenticated()?false:this.router.navigate(['login']);
@@ -41,36 +31,29 @@ export class ViewComponent implements OnInit {
         .subscribe(res => {
           this.general_patient_info = res.data;
           let hospital_data = this.general_patient_info['facilities'];
-          let f : number[] = [];
-          let l : string[] = [];
+          let f_h = [];
+          let l_h = [];
           hospital_data.forEach(function (value,index) {
-            f.push(value.frequency);
-            l.push(value.name);
+            f_h.push(value.frequency);
+            l_h.push(value.name);
           });
-          this.analysis_h_frequency=f;
-          this.analysis_h_labels=l;
 
-          let med_data = this.general_patient_info['medication'];
-          let f_m : number[] = [];
-          let l_m : string[] = [];
-          med_data.forEach(function (value,index) {
-            f_m.push(value.frequency);
-            l_m.push(value.name);
-          });
-          this.analysis_m_frequency=f_m;
-          this.analysis_m_labels=l_m;
-
-
-          let diag_data = this.general_patient_info['diagnosis'];
-          let f_d : number[] = [];
-          let l_d : string[] = [];
-          diag_data.forEach(function (value,index) {
+          let diagnosis_data = this.general_patient_info['diagnosis'];
+          let f_d = [];
+          let l_d = [];
+          diagnosis_data.forEach(function (value,index) {
             f_d.push(value.frequency);
             l_d.push(value.name);
           });
-          this.analysis_d_frequency=f_d;
-          this.analysis_d_labels=l_d;
 
+          let medication_data = this.general_patient_info['medication'];
+          let f_m = [];
+          let l_m = [];
+          medication_data.forEach(function (value,index) {
+            f_m.push(value.frequency);
+            l_m.push(value.name);
+          });
+          this.analytics={hospital:{labels:l_h,frequency:f_h},diagnosis:{labels:l_d,frequency:f_d},medication:{labels:l_m,frequency:f_m}}
         });
   }
 
