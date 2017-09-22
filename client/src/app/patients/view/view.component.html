@@ -14,19 +14,19 @@
                                 <div class="form-group col-sm-4">
                                     <label for="first_name">First name</label>
                                     <input type="text" class="form-control" name="first_name" disabled
-                                           [(ngModel)]="general_patient_info.first_name" id="first_name"
+                                           [(ngModel)]="general_patient_info['first_name']" id="first_name"
                                            placeholder="Patient first name">
                                 </div>
                                 <div class="form-group col-sm-4">
                                     <label for="middle_name">Middle name</label>
                                     <input type="text" class="form-control" name="middle_name" disabled
-                                           [(ngModel)]="general_patient_info.middle_name" id="middle_name"
+                                           [(ngModel)]="general_patient_info['middle_name']" id="middle_name"
                                            placeholder="Patient middle name">
                                 </div>
                                 <div class="form-group col-sm-4">
                                     <label for="surname">Surname</label>
                                     <input type="text" class="form-control" name="surname" disabled
-                                           [(ngModel)]="general_patient_info.surname" id="surname"
+                                           [(ngModel)]="general_patient_info['surname']" id="surname"
                                            placeholder="Patient surname">
                                 </div>
                             </div>
@@ -35,12 +35,12 @@
                                 <div class="form-group col-sm-4">
                                     <label for="dob">Date of birth</label>
                                     <input type="date" class="form-control" name="dob" disabled
-                                           [(ngModel)]="general_patient_info.dob" id="dob" placeholder="Date of birth">
+                                           [(ngModel)]="general_patient_info['dob']" id="dob" placeholder="Date of birth">
                                 </div>
                                 <div class="form-group col-sm-4">
                                     <label for="gender">Gender</label>
                                     <select type="text" class="form-control" name="gender" disabled
-                                            [(ngModel)]="general_patient_info.gender" id="gender">
+                                            [(ngModel)]="general_patient_info['gender']" id="gender">
                                         <option value="Male">Male</option>
                                         <option value="Female">Female</option>
                                     </select>
@@ -48,7 +48,7 @@
                                 <div class="form-group col-sm-4">
                                     <label for="marital_status">Marital status</label>
                                     <select type="text" class="form-control" name="marital_status" disabled
-                                            [(ngModel)]="general_patient_info.marital_status" id="marital_status">
+                                            [(ngModel)]="general_patient_info['marital_status']" id="marital_status">
                                         <option value="Engaged">Engaged</option>
                                         <option value="Single">Single</option>
                                     </select>
@@ -59,18 +59,18 @@
                                 <div class="form-group col-sm-4">
                                     <label for="occupation">Occupation</label>
                                     <input type="text" class="form-control" name="occupation" disabled
-                                           [(ngModel)]="general_patient_info.occupation" id="occupation"
+                                           [(ngModel)]="general_patient_info['occupation']" id="occupation"
                                            placeholder="Occupation">
                                 </div>
                                 <div class="form-group col-sm-4">
                                     <label for="email">Email</label>
                                     <input type="text" class="form-control" name="email" disabled
-                                           [(ngModel)]="general_patient_info.email" id="email" placeholder="Email">
+                                           [(ngModel)]="general_patient_info['email']" id="email" placeholder="Email">
                                 </div>
                                 <div class="form-group col-sm-4">
                                     <label for="phone_number">Phone number</label>
                                     <input type="text" class="form-control" name="phone_number" disabled
-                                           [(ngModel)]="general_patient_info.phone_number" id="phone_number"
+                                           [(ngModel)]="general_patient_info['phone_number']" id="phone_number"
                                            placeholder="Phone number">
                                 </div>
                             </div>
@@ -79,17 +79,17 @@
                                 <div class="form-group col-sm-4">
                                     <label for="city">City</label>
                                     <input type="text" class="form-control" name="city" disabled
-                                           [(ngModel)]="general_patient_info.city" id="city" placeholder="City">
+                                           [(ngModel)]="general_patient_info['city']" id="city" placeholder="City">
                                 </div>
                                 <div class="form-group col-sm-4">
                                     <label for="town">Town</label>
                                     <input type="text" class="form-control" name="town" disabled
-                                           [(ngModel)]="general_patient_info.town" id="town" placeholder="Town">
+                                           [(ngModel)]="general_patient_info['town']" id="town" placeholder="Town">
                                 </div>
                                 <div class="form-group col-sm-4">
                                     <label for="street">Street</label>
                                     <input type="text" class="form-control" name="street" disabled
-                                           [(ngModel)]="general_patient_info.street" id="street" placeholder="Street">
+                                           [(ngModel)]="general_patient_info['street']" id="street" placeholder="Street">
                                 </div>
                             </div>
 
@@ -97,13 +97,13 @@
                                 <div class="form-group col-sm-6">
                                     <label for="postal_code">Postal code</label>
                                     <input type="text" class="form-control" name="postal_code" disabled
-                                           [(ngModel)]="general_patient_info.postal_code" id="postal_code"
+                                           [(ngModel)]="general_patient_info['postal_code']" id="postal_code"
                                            placeholder="Postal code">
                                 </div>
                                 <div class="form-group col-sm-6">
                                     <label for="postal_address">Postal address</label>
                                     <input type="text" class="form-control" name="postal_address" disabled
-                                           [(ngModel)]="general_patient_info.postal_address" id="postal_address"
+                                           [(ngModel)]="general_patient_info['postal_address']" id="postal_address"
                                            placeholder="Postal address">
                                 </div>
                             </div>
@@ -112,19 +112,19 @@
                                 <div class="form-group col-sm-4">
                                     <label for="emergency_contact_name">Emergency Contact Name</label>
                                     <input type="text" class="form-control" name="emergency_contact_name" disabled
-                                           [(ngModel)]="general_patient_info.emergency_contact_name"
+                                           [(ngModel)]="general_patient_info['emergency_contact_name']"
                                            id="emergency_contact_name" placeholder="Full contact name">
                                 </div>
                                 <div class="form-group col-sm-4">
                                     <label for="emergency_contact_phone">Emergency Contact Phone</label>
                                     <input type="text" class="form-control" name="emergency_contact_phone" disabled
-                                           [(ngModel)]="general_patient_info.emergency_contact_phone"
+                                           [(ngModel)]="general_patient_info['emergency_contact_phone']"
                                            id="emergency_contact_phone" placeholder="Emergency Contact Phone">
                                 </div>
                                 <div class="form-group col-sm-4">
                                     <label for="emergency_contact_relation">Emergency Contact relation</label>
                                     <input type="text" class="form-control" name="emergency_contact_relation" disabled
-                                           [(ngModel)]="general_patient_info.emergency_contact_relation"
+                                           [(ngModel)]="general_patient_info['emergency_contact_relation']"
                                            id="emergency_contact_relation" placeholder="Emergency Contact Relation">
                                 </div>
                             </div>
@@ -132,7 +132,7 @@
                             <div class="form-group">
                                 <label for="notes">Patient Notes</label>
                                 <textarea type="text" class="form-control" name="notes" disabled
-                                          [(ngModel)]="general_patient_info.notes" id="notes"
+                                          [(ngModel)]="general_patient_info['notes']" id="notes"
                                           placeholder="Patient notes"></textarea>
                             </div>
                         </form>
@@ -166,7 +166,7 @@
                                                 <div class="card-block p-a-1 clearfix">
                                                     <i class="fa fa-cogs bg-primary p-a-1 font-2xl m-r-1 pull-left"></i>
                                                     <div class="h5 text-primary m-b-0 m-t-h">
-                                                        {{general_patient_info.diagnosis?.length}}
+                                                        {{general_patient_info['diagnosis']?.length}}
                                                     </div>
                                                     <div class="text-muted text-uppercase font-weight-bold font-xs">
                                                         Unique Diagnosis
@@ -179,7 +179,7 @@
                                                 <div class="card-block p-a-1 clearfix">
                                                     <i class="fa fa-cogs bg-primary p-a-1 font-2xl m-r-1 pull-left"></i>
                                                     <div class="h5 text-primary m-b-0 m-t-h">
-                                                        {{general_patient_info.facilities?.length}}
+                                                        {{general_patient_info['facilities']?.length}}
                                                     </div>
                                                     <div class="text-muted text-uppercase font-weight-bold font-xs">
                                                         Unique Hospitals
@@ -208,7 +208,7 @@
                                         </tr>
                                         </thead>
                                         <tbody>
-                                        <tr *ngFor="let his of general_patient_info.history">
+                                        <tr *ngFor="let his of general_patient_info['history']">
                                             <td>{{his.diagnosis_code}}</td>
                                             <td>{{his.name}}</td>
                                             <td>{{his.diagnosis}}</td>
@@ -232,9 +232,9 @@
                         <div class="col-sm-4">
                             <div class="card">
                                 <div class="chart-wrapper">
-                                    <canvas *ngIf="analytics.hospital" baseChart class="chart"
-                                            [data]="analytics.hospital.frequency"
-                                            [labels]="analytics.hospital.labels"
+                                    <canvas *ngIf="analytics['hospital']" baseChart class="chart"
+                                            [data]="analytics['hospital'].frequency"
+                                            [labels]="analytics['hospital'].labels"
                                             [chartType]="doughnutChartType"
                                             (chartHover)="chartHovered($event)"
                                             (chartClick)="chartClicked($event)">
@@ -245,9 +245,9 @@
                         <div class="col-sm-4">
                             <div class="card">
                                 <div class="chart-wrapper">
-                                    <canvas *ngIf="analytics.diagnosis" baseChart class="chart"
-                                            [data]="analytics.diagnosis.frequency"
-                                            [labels]="analytics.diagnosis.labels"
+                                    <canvas *ngIf="analytics['diagnosis']" baseChart class="chart"
+                                            [data]="analytics['diagnosis'].frequency"
+                                            [labels]="analytics['diagnosis'].labels"
                                             [chartType]="doughnutChartType"
                                             (chartHover)="chartHovered($event)"
                                             (chartClick)="chartClicked($event)">
@@ -258,9 +258,9 @@
                         <div class="col-sm-4">
                             <div class="card">
                                 <div class="chart-wrapper">
-                                    <canvas *ngIf="analytics.medication" baseChart class="chart"
-                                            [data]="analytics.medication.frequency"
-                                            [labels]="analytics.medication.labels"
+                                    <canvas *ngIf="analytics['medication']" baseChart class="chart"
+                                            [data]="analytics['medication'].frequency"
+                                            [labels]="analytics['medication'].labels"
                                             [chartType]="doughnutChartType"
                                             (chartHover)="chartHovered($event)"
                                             (chartClick)="chartClicked($event)">
@@ -276,9 +276,9 @@
                             </div>
                             <div class="card-body">
                                 <div class="chart-wrapper">
-                                    <canvas *ngIf="analytics.line_chart" baseChart class="chart"
-                                            [datasets]="analytics.line_chart.lineChartData"
-                                            [labels]="analytics.line_chart.lineChartLabels"
+                                    <canvas *ngIf="analytics['line_chart']" baseChart class="chart"
+                                            [datasets]="analytics['line_chart'].lineChartData"
+                                            [labels]="analytics['line_chart'].lineChartLabels"
                                             [options]="lineChartOptions"
                                             [colors]="lineChartColours"
                                             [legend]="lineChartLegend"

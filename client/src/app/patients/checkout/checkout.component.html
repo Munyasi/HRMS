@@ -8,19 +8,19 @@
         <table class="table table-bordered table-striped table-condensed">
           <tr>
             <td>Names</td>
-            <td>{{patient_info.surname}} {{patient_info.middle_name}} {{patient_info.first_name}}</td>
+            <td>{{patient_info['surname']}} {{patient_info['middle_name']}} {{patient_info['first_name']}}</td>
           </tr>
           <tr>
             <td>Age</td>
-            <td>{{patient_info.age}} years</td>
+            <td>{{patient_info['age']}} years</td>
           </tr>
           <tr>
             <td>Gender</td>
-            <td>{{patient_info.gender}}</td>
+            <td>{{patient_info['gender']}}</td>
           </tr>
           <tr>
             <td>Notes</td>
-            <td>{{patient_info.note}}</td>
+            <td>{{patient_info['note']}}</td>
           </tr>
         </table>
       </div>
