@@ -13,6 +13,11 @@ function getAllDetails(params, cb) {
         .then(function (resPatient) {
             if(resPatient){
                 // an example using an object instead of an array
+                if(resPatient.gender=='Male'){
+                    resPatient['ref']='He';
+                }else{
+                    resPatient['ref']='She';
+                }
                 async.parallel({
                     facilities: function(callback) {
                         var ds = Hospital.dataSource;

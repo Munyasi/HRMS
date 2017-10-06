@@ -20,9 +20,9 @@ function search(id, cb) {
                 resPatient.authorization_code = rand;
                 resPatient.save();
                 phone = resPatient.phone_number;
-                sendMessage("+254"+phone.substr(phone.length - 9),rand);
+                //sendMessage("+254"+phone.substr(phone.length - 9),rand);
                 //sendMail(resPatient.email,rand);
-                resPatient.authorization_code=null;
+                //resPatient.authorization_code=null;
                 cb(null,resPatient)
             }else{
                 cb(null,null);
@@ -57,8 +57,6 @@ function sendMail(email,rand) {
 function sendMessage(phone,rand) {
     var to      = phone;
     var message = "Your Authorization code is: "+rand;
-
-    // Build the post string from an object
 
     var post_data = querystring.stringify({
         'username' : username,
