@@ -227,6 +227,33 @@
                     </div>
                 </tab>
                 <tab>
+                    <ng-template tabHeading><i class="icon-basket-loaded"></i> Narrative</ng-template>
+                    <div class="row">
+                        <div class="col-lg-12">
+                            <div class="card">
+                                <div class="card-header">
+                                    <i class="fa fa-align-justify"></i> Treatment narrative
+                                </div>
+                                <div class="card-block">
+                                    <table class="table table-striped">
+                                        <tbody>
+                                        <tr *ngFor="let his of general_patient_info['history']">
+                                            <td>
+                                                <p>
+                                                    {{his.first_name}} suffered from {{his.diagnosis}}.
+                                                    {{his.ref}} was referred to {{'XXX'}} a {{'XXX specialist'}}
+                                                    on {{his.createdAt | date}} at {{'Hospital X'}} in {{'Location X'}}
+                                                </p>
+                                            </td>
+                                        </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </tab>
+                <tab>
                     <ng-template tabHeading><i class="icon-pie-chart"></i> Analytics</ng-template>
                     <div class="row">
                         <div class="col-sm-4">
