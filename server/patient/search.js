@@ -20,9 +20,9 @@ function search(id, cb) {
                 resPatient.authorization_code = rand;
                 resPatient.save();
                 phone = resPatient.phone_number;
-                //sendMessage("+254"+phone.substr(phone.length - 9),rand);
-                //sendMail(resPatient.email,rand);
-                //resPatient.authorization_code=null;
+                sendMessage("+254"+phone.substr(phone.length - 9),rand);
+                sendMail(resPatient.email,rand);
+                resPatient.authorization_code=null;
                 cb(null,resPatient)
             }else{
                 cb(null,null);
