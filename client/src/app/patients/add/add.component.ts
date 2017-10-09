@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import {Router} from '@angular/router';
 import { UserAccountApi, PatientApi } from '../../shared/sdk';
+import {Message} from 'primeng/components/common/api';
 
 @Component({
   selector: 'app-add-patient',
@@ -10,6 +11,7 @@ import { UserAccountApi, PatientApi } from '../../shared/sdk';
   providers: [UserAccountApi,PatientApi]
 })
 export class AddPatientComponent implements OnInit {
+  msgs: Message[] = [];
 
   patientForm: FormGroup;
   post: any;
@@ -46,9 +48,16 @@ export class AddPatientComponent implements OnInit {
       this.patient.create(post)
           .subscribe(res => {
             console.log(res);
+            this.showSuccess('Success','New patient successfully added');
+            this.patientForm.reset();
             //this.router.navigate(['patients']);
           });
     }
+  }
+
+  showSuccess(summary,detail) {
+    this.msgs = [];
+    this.msgs.push({severity:'success', summary:summary, detail:detail});
   }
 
 }

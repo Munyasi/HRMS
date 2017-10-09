@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import {Router} from '@angular/router';
 import { UserAccountApi, HospitalApi } from '../../../shared/sdk';
+import {Message} from 'primeng/components/common/api';
 
 @Component({
   selector: 'app-add-hospital',
@@ -10,7 +11,7 @@ import { UserAccountApi, HospitalApi } from '../../../shared/sdk';
   providers: [UserAccountApi,HospitalApi]
 })
 export class AddHospitalComponent implements OnInit {
-
+  msgs: Message[] = [];
   hospitalForm: FormGroup;
   post: any;
   constructor(private fb: FormBuilder, private router: Router, protected user:UserAccountApi, protected hospital: HospitalApi) {
@@ -33,9 +34,16 @@ export class AddHospitalComponent implements OnInit {
     if (this.hospitalForm.valid) {
       this.hospital.create(post)
           .subscribe(res => {
-            this.router.navigate(['localization/hospitals']);
+            this.showSuccess('Success','New hospital successfully added');
+            this.hospitalForm.reset();
+            setTimeout(() =>{ this.router.navigate(['localization/hospitals'])},3000);
           });
     }
+  }
+
+  showSuccess(summary,detail) {
+    this.msgs = [];
+    this.msgs.push({severity:'success', summary:summary, detail:detail});
   }
 
 }

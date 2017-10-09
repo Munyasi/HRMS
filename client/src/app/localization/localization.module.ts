@@ -1,6 +1,7 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import {GrowlModule} from 'primeng/primeng';
 
 import { HospitalsComponent } from './hospitals/hospitals.component';
 import { AddHospitalComponent } from './hospitals/add/add.component';
@@ -18,6 +19,7 @@ import { LocalizationRoutingModule } from './localization.routing';
 @NgModule({
   imports: [
     CommonModule,
+    GrowlModule,
     LocalizationRoutingModule,
     FormsModule,
     ReactiveFormsModule

@@ -8,6 +8,8 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { PatientsComponent } from './patients.component';
 import { AddPatientComponent } from './add/add.component';
 import { TabsModule } from 'ngx-bootstrap/tabs';
+import {GrowlModule} from 'primeng/primeng';
+import { D3Service } from 'd3-ng2-service';
 
 // Routing Module
 import { PatientsRoutingModule } from './patients.routing';
@@ -20,11 +22,13 @@ import { SearchComponent } from './search/search.component';
     CommonModule,
     FormsModule,
     ChartsModule,
+    GrowlModule,
     ReactiveFormsModule,
     PatientsRoutingModule,
     TagInputModule,
     TabsModule.forRoot(),
   ],
-  declarations: [PatientsComponent, AddPatientComponent, ViewComponent, SearchComponent]
+  declarations: [PatientsComponent, AddPatientComponent, ViewComponent, SearchComponent],
+  providers: [D3Service]
 })
 export class PatientsModule { }

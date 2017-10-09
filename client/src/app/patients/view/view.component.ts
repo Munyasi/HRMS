@@ -1,7 +1,19 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, ElementRef, NgZone, OnDestroy, OnInit } from '@angular/core';
 import { ActivatedRoute,Router } from '@angular/router';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { UserAccountApi, PatientApi,PatientHospitalApi } from '../../shared/sdk';
+import {
+    D3Service,
+    D3,
+    Axis,
+    BrushBehavior,
+    BrushSelection,
+    D3BrushEvent,
+    ScaleLinear,
+    ScaleOrdinal,
+    Selection,
+    Transition
+} from 'd3-ng2-service';
 
 @Component({
   selector: 'app-view',
@@ -21,6 +33,10 @@ export class ViewComponent implements OnInit {
     responsive: true
   };
 
+    private d3: D3;
+    private parentNativeElement: any;
+    private d3Svg: Selection<SVGSVGElement, any, null, undefined>;
+
   public lineChartColours: Array<any> = [
     { // grey
       backgroundColor: 'rgba(148,159,177,0.2)',
@@ -34,8 +50,10 @@ export class ViewComponent implements OnInit {
   public lineChartLegend = true;
   public lineChartType = 'line';
 
-  constructor(private router: Router,private route: ActivatedRoute, protected user:UserAccountApi, protected patient: PatientApi, protected patientHospital:PatientHospitalApi) {
-    this.user.isAuthenticated()?false:this.router.navigate(['login']);
+  constructor(element: ElementRef, private ngZone: NgZone, d3Service: D3Service,private router: Router,private route: ActivatedRoute, protected user:UserAccountApi, protected patient: PatientApi, protected patientHospital:PatientHospitalApi) {
+      this.d3 = d3Service.getD3();
+      this.parentNativeElement = element.nativeElement;
+      this.user.isAuthenticated()?false:this.router.navigate(['login']);
   }
 
   ngOnInit() {

@@ -3,6 +3,8 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { NgModule } from '@angular/core';
 import { LocationStrategy, HashLocationStrategy } from '@angular/common';
 import { SDKBrowserModule } from './shared/sdk/index';
+import {GrowlModule} from 'primeng/primeng';
+import { D3Service } from 'd3-ng2-service';
 
 import { AppComponent } from './app.component';
 import { BsDropdownModule } from 'ngx-bootstrap/dropdown';
@@ -26,6 +28,7 @@ import { SimpleLayoutComponent } from './layouts/simple-layout.component';
     BrowserModule,
     BrowserAnimationsModule,
     AppRoutingModule,
+    GrowlModule,
     SDKBrowserModule.forRoot(),
     BsDropdownModule.forRoot(),
     TabsModule.forRoot(),

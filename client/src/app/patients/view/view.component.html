@@ -240,14 +240,18 @@
                                         <tr *ngFor="let his of general_patient_info['history']">
                                             <td>
                                                 <p>
-                                                    {{his.first_name}} suffered from {{his.diagnosis}}.
-                                                    {{his.ref}} was referred to {{'XXX'}} a {{'XXX specialist'}}
-                                                    on {{his.createdAt | date}} at {{'Hospital X'}} in {{'Location X'}}
+                                                    {{general_patient_info['first_name']}} suffered from {{his.diagnosis}}.
+                                                    {{general_patient_info['ref']}} was referred to {{his.practitioner}} a {{'specialist'}}
+                                                    on {{his.createdAt | date}} at {{his['name']}} in {{his['hospital_town']}}
                                                 </p>
+                                            </td>
+                                            <td>
+                                                <button type="button" class="btn btn-link"><i class="fa fa-link"></i>&nbsp; Visual</button>
                                             </td>
                                         </tr>
                                         </tbody>
                                     </table>
+                                    <svg width="200" height="200"></svg>
                                 </div>
                             </div>
                         </div>
